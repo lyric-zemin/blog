@@ -2,25 +2,13 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "vitepress": "^1.0.0-alpha.15"
-  },
   "homepage": "https://lyric-zemin.github.io/blog",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "serve": "vitepress serve src"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "vitepress": "^1.0.0-alpha.15"
   }
 }
