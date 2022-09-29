@@ -23,7 +23,7 @@ onMounted(() => {
     container: insertNode,
     renderer: 'svg',
     loop: true,
-    path: 'https://labs.nearpod.com/bodymovin/demo/markus/isometric/markus2.json'
+    path: 'https://labs.nearpod.com/bodymovin/demo/markus/isometric/markus2.json',
   })
 })
 </script>

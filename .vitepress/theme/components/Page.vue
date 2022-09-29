@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, reactive } from 'vue'
+import { ref } from 'vue'
 import ShareCard from './ShareCard.vue'
 import { useData, withBase } from 'vitepress'
 
@@ -67,7 +67,7 @@ let posts = ref([])
 posts.value = allMap[pageCurrent.value - 1]
 
 // click pagination
-const go = i => {
+const go = (i) => {
   pageCurrent.value = i
   posts.value = allMap[pageCurrent.value - 1]
 }

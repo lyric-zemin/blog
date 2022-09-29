@@ -15,7 +15,7 @@ export function initTags(post: Post[]) {
     const tags = element.frontMatter.tags
     // tags是数组，需要tags按照数组语法的格式书写
     if (Array.isArray(tags)) {
-      tags.forEach(item => {
+      tags.forEach((item) => {
         if (!data[item]) {
           data[item] = []
         }

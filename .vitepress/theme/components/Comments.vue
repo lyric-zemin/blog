@@ -17,7 +17,7 @@ const gitalk = new Gitalk({
   admin: ['clark-cui'],
   id: decodeURI(window.location.pathname), // Ensure uniqueness and length less than 50
   language: 'zh-CN',
-  distractionFreeMode: true // Facebook-like distraction free mode
+  distractionFreeMode: true, // Facebook-like distraction free mode
 })
 onMounted(() => {
   gitalk.render('gitalk-container')

@@ -9,11 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import DefaultTheme from "vitepress/theme";
-import HomeHero from "./HomeHero.vue";
-import CopyWright from "./CopyWright.vue";
-import Page from "./Page.vue";
-import ToggleTheme from "./ToggleTheme.vue";
+import DefaultTheme from 'vitepress/theme'
+import HomeHero from './HomeHero.vue'
+import Page from './Page.vue'
+import CopyWright from './CopyWright.vue'
 
-const { Layout } = DefaultTheme;
+const { Layout } = DefaultTheme
 </script>
