@@ -1,0 +1,1 @@
+import{_ as t,c as r,a,o as s,r as o}from"./app.99ebbb42.js";const v=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"archives.md"}'),c={name:"archives.md"};function n(i,p,_,d,m,l){const e=o("Archives",!0);return s(),r("div",null,[a(e)])}const f=t(c,[["render",n]]);export{v as __pageData,f as default};
