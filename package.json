@@ -4,11 +4,21 @@
   "private": true,
   "homepage": "https://lyric-zemin.github.io/blog",
   "scripts": {
-    "dev": "vitepress dev src",
-    "build": "vitepress build src",
-    "serve": "vitepress serve src"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve",
+    "lint": "prettier . -w"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
+    "gitalk": "^1.7.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.0",
+    "globby": "11.0.4",
+    "gray-matter": "^4.0.3",
+    "lottie-web": "^5.7.14",
+    "prettier": "^2.7.1",
     "vitepress": "^1.0.0-alpha.15"
   }
 }
