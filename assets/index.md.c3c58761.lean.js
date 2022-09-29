@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.99ebbb42.js";const _=JSON.parse('{"title":"home","description":"","frontmatter":{"layout":"home","date":"2022-09-29T00:00:00.000Z","title":"home","sidebar":false},"headers":[],"relativePath":"index.md"}'),o={name:"index.md"};function r(n,s,c,d,i,m){return a(),t("div")}const l=e(o,[["render",r]]);export{_ as __pageData,l as default};
