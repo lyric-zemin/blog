@@ -1,6 +1,7 @@
 ---
 title: tag
 description: git中tag命令的一些用法
+aside: false
 date: 2022-9-29
 tags:
   - git

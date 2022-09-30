@@ -1,12 +1,11 @@
 ---
 title: css
 # description: javascript中bind的一些用法
+aside: false
 date: 2022-9-29
 tags:
   - css
 ---
-
-# css
 
 ## css 控制文字显示 2 行
 

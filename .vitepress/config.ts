@@ -35,12 +35,6 @@ async function config() {
           link: '/archives',
         },
       ],
-
-      // sidebar: {
-      //   "./posts/": false,
-      //   "/": false,
-      // },
-      // sidebar: false
     },
   })
 }

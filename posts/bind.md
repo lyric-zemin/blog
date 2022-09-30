@@ -1,6 +1,7 @@
 ---
 title: bind
 description: javascript中bind的一些用法
+aside: false
 date: 2022-9-25
 tags:
   - javascript
