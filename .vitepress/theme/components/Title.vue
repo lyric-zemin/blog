@@ -1,7 +1,7 @@
 <template>
   <h1 class="title">{{ title }}</h1>
-  <div class="date">🕒 lastUpdated: {{ date }}</div>
-  <!-- <div class="description">description: {{ description }}</div> -->
+  <!-- <div class="date">🕒 lastUpdated: {{ date }}</div> -->
+  <div class="description">🎈 {{ description }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -44,7 +44,6 @@ const date = dayjs().to(dayjs(lastUpdated))
   border-bottom: 1px dashed #c7c7c7;
 }
 .description {
-  margin-bottom: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

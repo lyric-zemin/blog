@@ -6,6 +6,7 @@ date: 2022-9-25
 tags:
   - javascript
 ---
+# javascript中bind的一些用法
 
 ## 绑定 this
 

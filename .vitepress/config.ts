@@ -8,6 +8,7 @@ async function config() {
     title: '前端记记看',
     base: '/blog/',
     outDir: './build',
+    lastUpdated: true,
     description: '一个初级前端的记事本',
     // head: [],
 
@@ -15,7 +16,6 @@ async function config() {
       outlineTitle: '🤣🤣🤣',
       logo: '/tea.svg',
       docsDir: '/',
-      lastUpdated: true,
 
       pageSize: 5, // 几个为一页
       posts: posts,

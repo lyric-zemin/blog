@@ -6,7 +6,7 @@
     <!-- Page slot-->
 
     <template #doc-before>
-      <Title v-if="isPost" />
+      <!-- <Title v-if="isPost" /> -->
       <Category v-if="isPost" />
     </template>
     <template #doc-after>

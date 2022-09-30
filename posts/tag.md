@@ -6,8 +6,9 @@ date: 2022-9-29
 tags:
   - git
 ---
+# git中tag命令的一些用法
 
-# 删除远程仓库 tag
+## 删除远程仓库 tag
 
 先删除本地 tag
 
