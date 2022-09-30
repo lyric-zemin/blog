@@ -9,7 +9,7 @@ type Post = {
 }
 
 export function initTags(post: Post[]) {
-  const data: Record<string, Post[]> = { all: post }
+  const data: Record<string, Post[]> = { All: post }
   for (let i = 0; i < post.length; i++) {
     const element = post[i]
     const tags = element.frontMatter.tags

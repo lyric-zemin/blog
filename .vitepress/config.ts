@@ -1,24 +1,25 @@
 import { defineConfigWithTheme } from 'vitepress'
-import { getPosts, getPostLength } from './theme/serverUtils'
+import { getPosts } from './theme/serverUtils'
 
 async function config() {
+  const posts = await getPosts()
   return defineConfigWithTheme({
     lang: 'zh-CN',
     title: '前端记记看',
     base: '/blog/',
     outDir: './build',
-    // description: 'Home of Clark Cui',
+    description: '一个初级前端的记事本',
     // head: [],
 
     themeConfig: {
       outlineTitle: '🤣🤣🤣',
       logo: '/tea.svg',
       docsDir: '/',
-      // docsBranch: "master",
-      lastUpdated: false,
-      posts: await getPosts(),
-      pageSize: 5, //几个为一页
-      postLength: await getPostLength(), //博客有几篇
+      lastUpdated: true,
+
+      pageSize: 5, // 几个为一页
+      posts: posts,
+      postLength: posts.length, //博客有几篇
 
       nav: [
         {

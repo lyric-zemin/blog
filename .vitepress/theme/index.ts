@@ -3,6 +3,7 @@ import Archives from './components/Archives.vue'
 import Tags from './components/Tags.vue'
 import MyLayout from './components/MyLayout.vue'
 import './custom.css'
+import type { Theme } from 'vitepress'
 
 export default {
   ...DefaultTheme,
@@ -15,4 +16,4 @@ export default {
     // router is VitePress' custom router (see `lib/app/router.js`)
     // siteData is a ref of current site-level metadata.
   },
-}
+} as Theme

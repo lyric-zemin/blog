@@ -3,8 +3,8 @@ import matter from 'gray-matter'
 import fs from 'fs-extra'
 
 export async function getPosts() {
-  let paths = await getPostMDFilePaths()
-  let posts = await Promise.all(
+  const paths = await getPostMDFilePaths()
+  const posts = await Promise.all(
     paths.map(async (item) => {
       const content = await fs.readFile(item, 'utf-8')
       const { data } = matter(content)
@@ -33,9 +33,4 @@ async function getPostMDFilePaths() {
     ignore: ['node_modules', 'README.md'],
   })
   return paths.filter((item) => item.includes('posts/'))
-}
-
-export async function getPostLength() {
-  // getPostMDFilePath return type is object not array
-  return [...(await getPostMDFilePaths())].length
 }

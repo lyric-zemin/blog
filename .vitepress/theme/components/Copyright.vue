@@ -1,16 +1,14 @@
 <template>
   <footer>
     Powered by
-    <a href="https://github.com/clark-cui/" target="_blank" title="作者"
-      >clark-cui</a
+    <a href="https://github.com/lyric-zemin" target="_blank" title="作者"
+      >lyric</a
     >
-    | Copyright © 2019-{{ date }} | MIT License
+    | Copyright © 2022-至今 | MIT License
   </footer>
 </template>
 
-<script lang="ts" setup>
-const date = new Date().getFullYear()
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
 footer {

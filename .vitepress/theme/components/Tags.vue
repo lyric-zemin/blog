@@ -46,13 +46,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, unref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../utils'
 
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-const selectTag = ref('all')
+const selectTag = ref(Object.keys(unref(data))[0])
 const toggleTag = (tag: string) => {
   selectTag.value = tag
 }

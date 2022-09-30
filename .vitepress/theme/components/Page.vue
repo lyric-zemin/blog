@@ -1,6 +1,5 @@
 <template>
   <ShareCard />
-  <!-- <h1 class="blog-title">Blog</h1> -->
   <div class="blogList">
     <a class="blog" v-for="item in posts" :href="withBase(item.regularPath)">
       <div class="title">{{ item.frontMatter.title }}</div>
@@ -51,7 +50,7 @@ postsAll = postsAll.filter((item: post) => {
   return item.regularPath.indexOf('index') < 0
 })
 // pagination
-let allMap = {}
+let allMap: Record<number, post[]> = {}
 for (let i = 0; i < pagesNum; i++) {
   allMap[i] = []
 }
@@ -63,11 +62,11 @@ for (let i = 0; i < postsAll.length; i++) {
   allMap[index].push(postsAll[i])
 }
 // set posts
-let posts = ref([])
+let posts = ref<post[]>([])
 posts.value = allMap[pageCurrent.value - 1]
 
 // click pagination
-const go = (i) => {
+const go = (i: number) => {
   pageCurrent.value = i
   posts.value = allMap[pageCurrent.value - 1]
 }
