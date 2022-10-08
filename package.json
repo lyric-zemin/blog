@@ -15,7 +15,7 @@
     "lottie-web": "^5.7.14"
   },
   "devDependencies": {
-    "fs-extra": "^10.0.0",
+    "@types/node": "16.11.64",
     "globby": "11.0.4",
     "gray-matter": "^4.0.3",
     "prettier": "^2.7.1",

@@ -1,22 +1,20 @@
 import globby from 'globby'
 import matter from 'gray-matter'
-import fs from 'fs-extra'
+import fs from 'node:fs'
 
 export async function getPosts() {
   const paths = await getPostMDFilePaths()
-  const posts = await Promise.all(
-    paths.map(async (item) => {
-      const content = await fs.readFile(item, 'utf-8')
-      const { data } = matter(content)
-      data.date = _convertDate(data.date)
-      return {
-        frontMatter: data,
-        regularPath: `/${item.replace('.md', '.html')}`,
-      }
-    })
-  )
-  posts.sort(_compareDate)
-  return posts
+  const posts = paths.map((item) => {
+    const content = fs.readFileSync(item, 'utf-8')
+    const { data } = matter(content)
+    data.date = _convertDate(data.date)
+    return {
+      frontMatter: data,
+      regularPath: `/${item.replace('.md', '.html')}`,
+    }
+  })
+
+  return posts.sort(_compareDate)
 }
 
 function _convertDate(date = new Date().toString()) {
