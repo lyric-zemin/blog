@@ -5,9 +5,9 @@
         {{ yearList[0].frontMatter.date.split('-')[0] }}
       </div>
       <a
-        :href="withBase(article.regularPath)"
         v-for="(article, index) in yearList"
         :key="index"
+        :href="withBase(article.regularPath)"
         class="article"
       >
         <div class="title">

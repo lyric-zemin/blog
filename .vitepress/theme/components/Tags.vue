@@ -2,11 +2,12 @@
   <h1 class="tags-header">Tags</h1>
   <div class="tags">
     <span
-      @click="toggleTag(key)"
       v-for="(item, key) in data"
+      :key="key"
       class="tag"
-      :style="getFontSize(data[key].length)"
       :class="{ activetag: selectTag === key }"
+      :style="getFontSize(data[key].length)"
+      @click="toggleTag(key)"
     >
       {{ key }} <span class="tag-length">{{ data[key].length }}</span>
     </span>
@@ -32,9 +33,9 @@
     <span class="header-text">{{ selectTag }}</span>
   </h4>
   <a
-    :href="withBase(article.regularPath)"
     v-for="(article, index) in data[selectTag]"
     :key="index"
+    :href="withBase(article.regularPath)"
     class="article"
   >
     <div class="title">

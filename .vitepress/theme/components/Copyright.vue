@@ -1,9 +1,9 @@
 <template>
   <footer>
     Powered by
-    <a href="https://github.com/lyric-zemin" target="_blank" title="作者"
-      >lyric</a
-    >
+    <a href="https://github.com/lyric-zemin" target="_blank" title="作者">
+      lyric
+    </a>
     | Copyright © 2022-至今 | MIT License
   </footer>
 </template>

@@ -1,17 +1,17 @@
 <template>
   <ShareCard />
   <div class="blogList">
-    <a class="blog" v-for="item in posts" :href="withBase(item.regularPath)">
-      <div class="title">{{ item.frontMatter.title }}</div>
-      <div class="date">{{ transDate(item.frontMatter.date) }}</div>
+    <a class="blog" v-for="post in posts" :href="withBase(post.regularPath)">
+      <div class="title">{{ post.frontMatter.title }}</div>
+      <div class="date">{{ transDate(post.frontMatter.date) }}</div>
     </a>
   </div>
   <div class="pagination">
     <div
-      class="link"
-      :class="{ activeLink: pageCurrent === i }"
       v-for="i in pagesNum"
       :key="i"
+      class="link"
+      :class="{ activeLink: pageCurrent === i }"
       @click="go(i)"
     >
       {{ i }}
@@ -26,7 +26,7 @@ import { useData, withBase } from 'vitepress'
 
 interface post {
   regularPath: string
-  frontMatter: object
+  frontMatter: { title: string; date: string }
 }
 
 const { theme } = useData()
@@ -34,9 +34,9 @@ const { theme } = useData()
 // get posts
 let postsAll = theme.value.posts || []
 // get postLength
-let postLength = theme.value.postLength
+const postLength = theme.value.postLength
 // get pageSize
-let pageSize = theme.value.pageSize
+const pageSize = theme.value.pageSize
 //  pagesNum
 let pagesNum =
   postLength % pageSize === 0
@@ -44,13 +44,13 @@ let pagesNum =
     : postLength / pageSize + 1
 pagesNum = parseInt(pagesNum.toString())
 //pageCurrent
-let pageCurrent = ref(1)
+const pageCurrent = ref(1)
 // filter index post
 postsAll = postsAll.filter((item: post) => {
   return item.regularPath.indexOf('index') < 0
 })
 // pagination
-let allMap: Record<number, post[]> = {}
+const allMap: Record<number, post[]> = {}
 for (let i = 0; i < pagesNum; i++) {
   allMap[i] = []
 }
@@ -62,7 +62,7 @@ for (let i = 0; i < postsAll.length; i++) {
   allMap[index].push(postsAll[i])
 }
 // set posts
-let posts = ref<post[]>([])
+const posts = ref<post[]>([])
 posts.value = allMap[pageCurrent.value - 1]
 
 // click pagination

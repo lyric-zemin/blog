@@ -1,29 +1,29 @@
 <template>
-  <div class="pic"></div>
+  <div ref="pic" class="pic"></div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import lottie from 'lottie-web'
+
+const pic = ref<HTMLDListElement>()
 onMounted(() => {
   // storage lottie
-  const svgContainer = document.getElementById('svgContainer')
-  if (svgContainer) {
-    return
-  }
+  if (document.getElementById('svgContainer')) return
+
   // created insertNode and add style
   const insertNode = document.createElement('div')
   insertNode.id = 'svgContainer'
   insertNode.style.width = '300px'
   insertNode.style.margin = '0 auto'
-  const pic = document.getElementsByClassName('pic')[0]
-  pic.appendChild(insertNode)
+  pic.value?.appendChild(insertNode)
   // created lottie
-  const animItem = lottie.loadAnimation({
+  lottie.loadAnimation({
     container: insertNode,
     renderer: 'svg',
     loop: true,
-    path: 'https://labs.nearpod.com/bodymovin/demo/markus/isometric/markus2.json',
+    // path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/mnemonics.json',
+    path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/phonological.json',
   })
 })
 </script>
