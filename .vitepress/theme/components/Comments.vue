@@ -16,6 +16,8 @@ const gitalk = new Gitalk({
   id: decodeURI(window.location.pathname).substr(0, 50), // Ensure uniqueness and length less than 50
   language: 'zh-CN',
   distractionFreeMode: true, // Facebook-like distraction free mode
+  // 原代理失效
+  proxy: 'https://vercel.prohibitorum.top/github_access_token',
 })
 onMounted(() => {
   gitalk.render('gitalk-container')
