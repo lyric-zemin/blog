@@ -3,6 +3,7 @@
 </template>
 
 <script lang="ts" setup>
+import { withBase } from 'vitepress'
 import { ref, onMounted } from 'vue'
 import lottie from 'lottie-web'
 
@@ -23,7 +24,7 @@ onMounted(() => {
     renderer: 'svg',
     loop: true,
     // path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/mnemonics.json',
-    path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/phonological.json',
+    path: withBase('/phonological.json'),
   })
 })
 </script>

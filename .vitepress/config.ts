@@ -13,7 +13,6 @@ async function config() {
     // head: [],
 
     themeConfig: {
-      outlineTitle: '🤣🤣🤣',
       logo: '/tea.svg',
       docsDir: '/',
 
