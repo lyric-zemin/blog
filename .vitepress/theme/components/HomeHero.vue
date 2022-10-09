@@ -31,6 +31,7 @@ onMounted(() => {
 
 <style scoped>
 .pic {
+  min-height: 300px;
   text-align: center;
 }
 </style>
