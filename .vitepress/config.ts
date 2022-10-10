@@ -8,7 +8,7 @@ async function config() {
     title: '前端记记看',
     base: '/blog/',
     outDir: './build',
-    lastUpdated: true,
+    // lastUpdated: true,
     description: '一个初级前端的记事本',
     // head: [],
 

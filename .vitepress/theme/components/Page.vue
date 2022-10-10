@@ -1,12 +1,17 @@
 <template>
   <ShareCard />
   <div class="blogList">
-    <a class="blog" v-for="post in posts" :href="withBase(post.regularPath)">
+    <a
+      class="blog"
+      v-for="post in posts"
+      :key="post.regularPath"
+      :href="withBase(post.regularPath)"
+    >
       <div class="title">{{ post.frontMatter.title }}</div>
       <div class="date">{{ transDate(post.frontMatter.date) }}</div>
     </a>
   </div>
-  <div class="pagination">
+  <div class="pagination" v-if="pagesNum > 1">
     <div
       v-for="i in pagesNum"
       :key="i"
@@ -136,7 +141,7 @@ const transDate = (date: string) => {
 }
 .blogList {
   padding: 30px 0;
-  padding-bottom: 120px;
+  /* padding-bottom: 120px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
