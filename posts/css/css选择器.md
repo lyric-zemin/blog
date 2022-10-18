@@ -129,6 +129,72 @@ a[target="_blank"] {
 }
 ```
 
+### CSS [attribute~="value"] 选择器
+
+> [attribute~="value"] 选择器选取属性值包含指定词的元素。下例选取 title 属性包含 "flower" 单词的所有元素
+
+```css
+[title~="flower"] {
+  border: 5px solid yellow;
+}
+```
+
+### CSS [attribute|="value"] 选择器
+
+> [attribute|="value"] 选择器用于选取指定属性以指定值开头的元素。下例选取 class 属性以 "top" 开头的所有元素
+
+:::tip
+值必须是完整或单独的单词，比如 class="top" 或者后跟连字符的，比如 class="top-text"。
+:::
+
+```css
+[class|="top"] {
+  background: yellow;
+}
+```
+
+### CSS [attribute^="value"] 选择器
+
+> [attribute^="value"] 选择器用于选取指定属性以指定值开头的元素。下例选取 class 属性以 "top" 开头的所有元素
+
+:::tip
+值不必是完整单词！
+:::
+
+```css
+[class^="top"] {
+  background: yellow;
+}
+```
+
+### CSS [attribute$="value"] 选择器
+
+> [attribute$="value"] 选择器用于选取指定属性以指定值结尾的元素。下例选取 class 属性以 "test" 结尾的所有元素
+
+:::tip
+值不必是完整单词！
+:::
+
+```css
+[class$="test"] {
+  background: yellow;
+}
+```
+
+### CSS [attribute*="value"] 选择器
+
+> [attribute*="value"] 选择器选取属性值包含指定词的元素。下例选取 class 属性包含 "te" 的所有元素
+
+:::tip
+值不必是完整单词！
+:::
+
+```css
+[class*="te"] {
+  background: yellow;
+}
+```
+
 ## 相关链接
 
 [W3school CSS 选择器](https://www.w3school.com.cn/css/css_selectors.asp)
