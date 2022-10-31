@@ -4,7 +4,7 @@ description: tsconfig配置文件解析
 aside: false
 date: 2022-10-8
 tags:
-  - ts
+  - typescript
 ---
 
 # tsconfig配置文件解析

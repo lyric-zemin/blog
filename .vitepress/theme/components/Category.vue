@@ -27,6 +27,8 @@ const headers = pageData.page.value.headers
   box-shadow: 6px 6px var(--c-brand);
   border: 4px solid #282936;
   color: var(--c-brand-light);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }
 .header a {
   display: inline-block;
