@@ -10,15 +10,15 @@
     "lint": "prettier . -w"
   },
   "dependencies": {
-    "dayjs": "^1.10.7",
-    "gitalk": "^1.7.2",
-    "lottie-web": "^5.7.14"
+    "dayjs": "^1.11.7",
+    "gitalk": "^1.8.0",
+    "lottie-web": "^5.11.0"
   },
   "devDependencies": {
     "@types/node": "16.11.64",
     "globby": "11.0.4",
     "gray-matter": "^4.0.3",
-    "prettier": "^2.7.1",
-    "vitepress": "^1.0.0-alpha.15"
+    "prettier": "^2.8.8",
+    "vitepress": "^1.0.0-alpha.73"
   }
 }
