@@ -13,7 +13,7 @@ async function config() {
     // head: [],
 
     themeConfig: {
-      logo: '/tea.svg',
+      logo: '/logo.jpg',
       docsDir: '/',
 
       pageSize: 5, // 几个为一页

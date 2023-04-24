@@ -1,5 +1,5 @@
 <template>
-  <ShareCard />
+  <!-- <ShareCard /> -->
   <div class="blogList">
     <a
       class="blog"
@@ -140,7 +140,7 @@ const transDate = (date: string) => {
   font-weight: bold;
 }
 .blogList {
-  padding: 30px 0;
+  /* padding: 30px 0; */
   /* padding-bottom: 120px; */
   display: flex;
   flex-direction: column;
@@ -177,7 +177,7 @@ const transDate = (date: string) => {
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 70px;
+  bottom: 80px;
   width: 100%;
 }
 .link {

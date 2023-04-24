@@ -17,7 +17,7 @@ footer {
   width: 100%;
   bottom: 20px;
   padding: 0 20px;
-  background: var(--c-bg);
+  /* background: var(--c-bg); */
   color: var(--c-text);
 }
 a {

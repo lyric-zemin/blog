@@ -195,6 +195,22 @@ a[target="_blank"] {
 }
 ```
 
+## CSS 滚动条选择器
+
+> 你可以使用以下伪元素选择器去修改基于 webkit 的浏览器的滚动条样式：
+
+- `::-webkit-scrollbar`——整个滚动条。
+- `::-webkit-scrollbar-button`——滚动条上的按钮（上下箭头）。
+- `::-webkit-scrollbar-thumb`——滚动条上的滚动滑块。
+- `::-webkit-scrollbar-track`——滚动条轨道。
+- `::-webkit-scrollbar-track-piece`——滚动条没有滑块的轨道部分。
+- `::-webkit-scrollbar-corner`——当同时有垂直滚动条和水平滚动条时交汇的部分。通常是浏览器窗口的右下角。
+- `::-webkit-resizer`——出现在某些元素底角的可拖动调整大小的滑块。
+
+:::tip
+`::-webkit-scrollbar` CSS 伪类元素会影响设置了 overflow:scroll; 的元素的滚动条样式。
+:::
+
 ## 相关链接
 
 [W3school CSS 选择器](https://www.w3school.com.cn/css/css_selectors.asp)
