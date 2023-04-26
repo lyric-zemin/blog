@@ -12,6 +12,10 @@ async function config() {
     description: '一个初级前端的记事本',
     // head: [],
 
+    // 2023/4/26 修复快捷菜单不显示的问题
+    // 不配置headers导致@mdit-vue/plugin-headers插件不启用
+    markdown: { headers: true },
+
     themeConfig: {
       logo: '/logo.jpg',
       docsDir: '/',
