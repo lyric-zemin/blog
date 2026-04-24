@@ -1,45 +1,34 @@
-import { defineConfigWithTheme } from 'vitepress'
-import { getPosts } from './theme/serverUtils'
+import { defineConfig } from 'vitepress'
 
-async function config() {
-  const posts = await getPosts()
-  return defineConfigWithTheme({
-    lang: 'zh-CN',
-    title: '前端记记看',
-    base: '/blog/',
-    outDir: './build',
-    // lastUpdated: true,
-    description: '一个初级前端的记事本',
-    // head: [],
+export default defineConfig({
+  lang: 'zh-CN',
+  title: '前端记记看',
+  base: '/blog/',
+  outDir: './build',
+  description: '一个初级前端的记事本',
 
-    // 2023/4/26 修复快捷菜单不显示的问题
-    // 不配置headers导致@mdit-vue/plugin-headers插件不启用
-    markdown: { headers: true },
+  // 2023/4/26 修复快捷菜单不显示的问题
+  // 不配置headers导致@mdit-vue/plugin-headers插件不启用
+  markdown: { headers: true },
 
-    themeConfig: {
-      logo: '/logo.jpg',
-      docsDir: '/',
+  themeConfig: {
+    logo: '/logo.jpg',
 
-      pageSize: 5, // 几个为一页
-      posts: posts,
-      postLength: posts.length, //博客有几篇
+    lastUpdated: { text: '最后更新时间' },
 
-      nav: [
-        {
-          text: '🏡Home',
-          link: '/',
-        },
-        {
-          text: '🔖Tags',
-          link: '/tags',
-        },
-        {
-          text: '📃Archives',
-          link: '/archives',
-        },
-      ],
-    },
-  })
-}
-
-export default config()
+    nav: [
+      {
+        text: '🏡Home',
+        link: '/',
+      },
+      {
+        text: '🔖Tags',
+        link: '/tags',
+      },
+      {
+        text: '📃Archives',
+        link: '/archives',
+      },
+    ],
+  },
+})

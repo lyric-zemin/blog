@@ -1,24 +1,13 @@
 <template>
   <!-- <ShareCard /> -->
   <div class="blogList">
-    <a
-      class="blog"
-      v-for="post in posts"
-      :key="post.regularPath"
-      :href="withBase(post.regularPath)"
-    >
-      <div class="title">{{ post.frontMatter.title }}</div>
-      <div class="date">{{ transDate(post.frontMatter.date) }}</div>
+    <a class="blog" v-for="post in posts" :key="post.url" :href="withBase(post.url)">
+      <div class="title">{{ post.frontmatter.title }}</div>
+      <div class="date">{{ transDate(post.frontmatter.date) }}</div>
     </a>
   </div>
   <div class="pagination" v-if="pagesNum > 1">
-    <div
-      v-for="i in pagesNum"
-      :key="i"
-      class="link"
-      :class="{ activeLink: pageCurrent === i }"
-      @click="go(i)"
-    >
+    <div v-for="i in pagesNum" :key="i" class="link" :class="{ activeLink: pageCurrent === i }" @click="go(i)">
       {{ i }}
     </div>
   </div>
@@ -26,22 +15,18 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import ShareCard from './ShareCard.vue'
-import { useData, withBase } from 'vitepress'
-
-interface post {
-  regularPath: string
-  frontMatter: { title: string; date: string }
-}
-
-const { theme } = useData()
+// import ShareCard from './ShareCard.vue'
+import { withBase } from 'vitepress'
+import { Post } from '../../type'
+// @ts-ignore
+import { data } from '../posts.data'
 
 // get posts
-let postsAll = theme.value.posts || []
+let postsAll = data || []
 // get postLength
-const postLength = theme.value.postLength
+const postLength = postsAll.length
 // get pageSize
-const pageSize = theme.value.pageSize
+const pageSize = 5
 //  pagesNum
 let pagesNum =
   postLength % pageSize === 0
@@ -51,11 +36,11 @@ pagesNum = parseInt(pagesNum.toString())
 //pageCurrent
 const pageCurrent = ref(1)
 // filter index post
-postsAll = postsAll.filter((item: post) => {
-  return item.regularPath.indexOf('index') < 0
+postsAll = postsAll.filter((item: Post) => {
+  return item.url.indexOf('index') < 0
 })
 // pagination
-const allMap: Record<number, post[]> = {}
+const allMap: Record<number, Post[]> = {}
 for (let i = 0; i < pagesNum; i++) {
   allMap[i] = []
 }
@@ -67,7 +52,7 @@ for (let i = 0; i < postsAll.length; i++) {
   allMap[index].push(postsAll[i])
 }
 // set posts
-const posts = ref<post[]>([])
+const posts = ref<Post[]>([])
 posts.value = allMap[pageCurrent.value - 1]
 
 // click pagination
@@ -139,6 +124,7 @@ const transDate = (date: string) => {
   text-align: center;
   font-weight: bold;
 }
+
 .blogList {
   /* padding: 30px 0; */
   /* padding-bottom: 120px; */
@@ -147,6 +133,7 @@ const transDate = (date: string) => {
   justify-content: center;
   align-items: center;
 }
+
 .blog {
   width: 85%;
   display: block;
@@ -159,19 +146,23 @@ const transDate = (date: string) => {
   border: 4px solid #282936;
   cursor: pointer;
 }
+
 .blog:hover {
   text-decoration: none;
   transform: translate(-2px, -2px);
   box-shadow: 10px 10px var(--c-brand);
 }
+
 .title {
   color: var(--c-brand-light);
   font-size: 1.2em;
   font-weight: bold;
 }
+
 .date {
   padding-bottom: 7px;
 }
+
 .pagination {
   display: flex;
   align-items: center;
@@ -180,6 +171,7 @@ const transDate = (date: string) => {
   bottom: 80px;
   width: 100%;
 }
+
 .link {
   width: 2rem;
   height: 2rem;
@@ -191,12 +183,15 @@ const transDate = (date: string) => {
   transition: 0.2s;
   border-radius: 2px;
 }
+
 .link:last-child {
   border-right: 1px solid #282936;
 }
+
 .link:hover {
   transform: translate(-1px, -1px);
 }
+
 .activeLink {
   background-color: var(--c-brand);
   color: white;

@@ -35,24 +35,25 @@
   <a
     v-for="(article, index) in data[selectTag]"
     :key="index"
-    :href="withBase(article.regularPath)"
+    :href="withBase(article.url)"
     class="article"
   >
     <div class="title">
       <div class="title-o"></div>
-      {{ article.frontMatter.title }}
+      {{ article.frontmatter.title }}
     </div>
-    <div class="date">{{ article.frontMatter.date }}</div>
+    <div class="date">{{ article.frontmatter.date }}</div>
   </a>
 </template>
 
 <script lang="ts" setup>
 import { computed, ref, unref } from 'vue'
-import { useData, withBase } from 'vitepress'
-import { initTags } from '../utils'
+import { withBase } from 'vitepress'
+import { Post } from '../../type'
+// @ts-ignore
+import { data as posts } from '../posts.data'
 
-const { theme } = useData()
-const data = computed(() => initTags(theme.value.posts))
+const data = computed(() => initTags(posts))
 const selectTag = ref(Object.keys(unref(data))[0])
 const toggleTag = (tag: string) => {
   selectTag.value = tag
@@ -62,6 +63,24 @@ const getFontSize = (length: number) => {
   let size = length * 0.04 + 0.85
   return { fontSize: `${size}em` }
 }
+
+function initTags(post: Post[]) {
+  const data: Record<string, Post[]> = { All: post }
+  for (let i = 0; i < post.length; i++) {
+    const element = post[i]
+    const tags = element.frontmatter.tags
+    // tags是数组，需要tags按照数组语法的格式书写
+    if (Array.isArray(tags)) {
+      tags.forEach((item) => {
+        if (!data[item]) {
+          data[item] = []
+        }
+        data[item].push(element)
+      })
+    }
+  }
+  return data
+}
 </script>
 
 <style scoped>
@@ -69,6 +88,7 @@ const getFontSize = (length: number) => {
   font-weight: bold;
   padding-bottom: 14px;
 }
+
 .tags {
   margin-top: 14px;
   display: flex;
@@ -80,6 +100,7 @@ const getFontSize = (length: number) => {
   margin-bottom: 10px;
   padding-bottom: 20px;
 }
+
 .tag {
   display: inline-block;
   margin: 6px 8px;
@@ -89,18 +110,22 @@ const getFontSize = (length: number) => {
   color: #a1a1a1;
   cursor: pointer;
 }
+
 .tag:hover {
   color: var(--c-hover);
 }
+
 .activetag {
   color: var(--c-hover);
 }
+
 .tag-length {
   color: var(--c-brand);
   font-size: 12px !important;
   position: relative;
   top: -8px;
 }
+
 .header {
   font-size: 1.5rem;
   font-weight: 600;
@@ -109,25 +134,32 @@ const getFontSize = (length: number) => {
   align-items: center;
   justify-content: left;
 }
+
 .fas-icon {
   width: 2rem;
   height: 2rem;
 }
+
 .header-text {
   padding-left: 10px;
 }
+
 .article {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 10px 10px;
   color: #666;
-  transition: border 0.3s ease, color 0.3s ease;
+  transition:
+    border 0.3s ease,
+    color 0.3s ease;
 }
+
 .article:hover {
   text-decoration: none;
   color: var(--c-brand);
 }
+
 .date {
   font-family: Georgia, sans-serif;
 }

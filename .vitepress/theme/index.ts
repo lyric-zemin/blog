@@ -6,14 +6,10 @@ import './custom.css'
 import type { Theme } from 'vitepress'
 
 export default {
-  ...DefaultTheme,
+  extends: DefaultTheme,
   Layout: MyLayout,
-  enhanceApp({ app, router, siteData }) {
-    // register global components
+  enhanceApp({ app }) {
     app.component('Archives', Archives)
     app.component('Tags', Tags)
-    // app is the Vue 3 app instance from createApp()
-    // router is VitePress' custom router (see `lib/app/router.js`)
-    // siteData is a ref of current site-level metadata.
   },
-} as Theme
+} satisfies Theme

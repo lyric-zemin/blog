@@ -1,5 +1,5 @@
 {
-  "include": [".vitepress/**/*"],
+  "include": [".vitepress/**/*", "shim.d.ts"],
   "compilerOptions": {
     "jsx": "preserve",
     "target": "esnext",

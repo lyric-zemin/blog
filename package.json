@@ -2,6 +2,7 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "homepage": "https://lyric-zemin.github.io/blog",
   "scripts": {
     "dev": "vitepress dev",
@@ -10,15 +11,13 @@
     "lint": "prettier . -w"
   },
   "dependencies": {
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.20",
     "gitalk": "^1.8.0",
-    "lottie-web": "^5.11.0"
+    "lottie-web": "^5.13.0"
   },
   "devDependencies": {
     "@types/node": "16.11.64",
-    "globby": "11.0.4",
-    "gray-matter": "^4.0.3",
-    "prettier": "^2.8.8",
-    "vitepress": "^1.0.0-alpha.73"
+    "prettier": "^3.8.3",
+    "vitepress": "^1.6.4"
   }
 }

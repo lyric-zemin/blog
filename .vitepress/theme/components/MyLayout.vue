@@ -1,8 +1,12 @@
 <template>
   <Layout>
     <!-- Home slot-->
-    <template #home-hero-before><HomeHero /> </template>
-    <template #home-features-before> <Page /></template>
+    <template #home-hero-before>
+      <HomeHero />
+    </template>
+    <template #home-features-before>
+      <Page />
+    </template>
 
     <!-- Page slot-->
     <template #doc-before>
@@ -30,7 +34,7 @@ import { useData } from 'vitepress'
 import { computed } from 'vue'
 
 const { Layout } = DefaultTheme
-const isPost = computed(() =>
-  useData().page.value.relativePath.includes('posts')
-)
+
+const data = useData()
+const isPost = computed(() => data.page.value.relativePath.includes('posts'))
 </script>
