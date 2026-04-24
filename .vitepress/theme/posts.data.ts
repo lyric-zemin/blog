@@ -2,13 +2,15 @@ import { ContentData, createContentLoader } from 'vitepress'
 
 export default createContentLoader('posts/**/*.md', {
   transform(rawData) {
-    return rawData.sort(compareDate).map((data) => ({
-      ...data,
-      frontmatter: {
-        ...data.frontmatter,
-        date: convertDate(data.frontmatter.date),
-      },
-    }))
+    return rawData
+      .map((data) => ({
+        ...data,
+        frontmatter: {
+          ...data.frontmatter,
+          date: convertDate(data.frontmatter.date),
+        },
+      }))
+      .sort(compareDate)
   },
 })
 
